@@ -40,15 +40,18 @@ class TransformingViewController: UIViewController {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            map()
+            startWith()
         case 1:
-            flatMap()
+            combineLatest()
         case 2:
-            scan()
+           // scan()
+            break
         case 3:
-            reduce()
+         // reduce()
+            break
         case 4:
-            buffer()
+            // buffer()
+            break
         default:
             break
         }
@@ -182,5 +185,31 @@ class TransformingViewController: UIViewController {
 extension TransformingViewController {
     func startWith(){
         
+        let _ = Observable.of(4, 5, 6, 7).startWith(3).startWith(2).subscribe{
+            print($0)
+        }
+    }
+    
+    // 当两个序列中的任何一个发射了数据时，combineLatest 会结合并整理每个序列发射的最近数据项;
+    // Rx 在 combineLatest 上的实现，只能结合 8 个序列。再多的话就要自己去拼接了
+    func combineLatest(){
+        let intOb1 = PublishSubject<String>()
+        let intOb2 = PublishSubject<Int>()
+        let intOb3 = PublishSubject<Int>()
+        
+        _ = Observable.combineLatest(intOb1, intOb2) {
+            "(\($0) \($1))"
+            }
+            .subscribe {
+                print($0)
+        }
+        
+        intOb1.onNext("a")
+        
+        intOb2.onNext(1)
+        
+        intOb1.onNext("b")
+        
+        intOb2.onNext(2)
     }
 }
