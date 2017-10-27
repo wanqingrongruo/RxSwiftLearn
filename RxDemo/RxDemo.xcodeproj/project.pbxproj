@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8217A5DB30D1C0EE0AF27361 /* Pods_RxDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365AA991484685BADCA06085 /* Pods_RxDemo.framework */; };
+		E01E06971FA1B4E100B83A16 /* TransformingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E06961FA1B4E100B83A16 /* TransformingViewController.swift */; };
 		E0DA93671F53E9B10056CFBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA93661F53E9B10056CFBA /* AppDelegate.swift */; };
 		E0DA93691F53E9B10056CFBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA93681F53E9B10056CFBA /* ViewController.swift */; };
 		E0DA936C1F53E9B10056CFBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0DA936A1F53E9B10056CFBA /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		365AA991484685BADCA06085 /* Pods_RxDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA48184D6EF378C4A37D865 /* Pods-RxDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxDemo/Pods-RxDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6759B40ED64727F82529AAC8 /* Pods-RxDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxDemo/Pods-RxDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E01E06961FA1B4E100B83A16 /* TransformingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformingViewController.swift; sourceTree = "<group>"; };
 		E0DA93631F53E9B00056CFBA /* RxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DA93661F53E9B10056CFBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0DA93681F53E9B10056CFBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				E0DA93661F53E9B10056CFBA /* AppDelegate.swift */,
 				E0DA93681F53E9B10056CFBA /* ViewController.swift */,
+				E01E06961FA1B4E100B83A16 /* TransformingViewController.swift */,
 				E0DA93791F53F3A10056CFBA /* RxTerm.swift */,
 				E0DA936A1F53E9B10056CFBA /* Main.storyboard */,
 				E0DA936D1F53E9B10056CFBA /* Assets.xcassets */,
@@ -169,13 +172,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C23A36E7A9EFA9461BC3ABEC /* [CP] Copy Pods Resources */ = {
@@ -199,9 +205,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RxDemo/Pods-RxDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -215,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01E06971FA1B4E100B83A16 /* TransformingViewController.swift in Sources */,
 				E0DA93691F53E9B10056CFBA /* ViewController.swift in Sources */,
 				E0DA93671F53E9B10056CFBA /* AppDelegate.swift in Sources */,
 				E0DA937A1F53F3A10056CFBA /* RxTerm.swift in Sources */,
